@@ -64,7 +64,7 @@ If you do not have access to Docker, you can still run the basic test by
 omitting the ``--docker`` and ``--mulled-test`` options.
 
 Other CLI Commands
-~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
 
 Beyond ``lint`` and ``build``, ``bioconda-utils`` provides several
 other commands for development and maintenance:
@@ -103,3 +103,45 @@ other commands for development and maintenance:
    falls back to rebuilding the recipe::
 
      bioconda-utils handle-merged-pr recipes/ config.yml --repo bioconda/bioconda-recipes --git-range master HEAD
+
+``bioconda-utils annotate-build-failures``
+   Record a build failure reason for one or more recipes.
+   ``--reason`` is required when no existing build failure record
+   with a log entry is present. ``--category`` is optional.
+   Use ``--skiplist`` to add the recipe to the skiplist::
+
+     bioconda-utils annotate-build-failures recipes/mypackage --reason "test timeout" --category "test failure" --skiplist
+
+``bioconda-utils autobump``
+   Scan recipes for new upstream versions and create pull requests
+   with the updates. Supports many configuration options for
+   filtering and automation::
+
+     bioconda-utils autobump recipes/ config.yml --packages mypkg --dry-run
+
+``bioconda-utils bioconductor-skeleton``
+   Generate a Bioconductor recipe skeleton. With ``--recursive``,
+   also generates recipes for all R dependencies. Use
+   ``update-all-packages`` as the package name to process all
+   Bioconductor packages::
+
+     bioconda-utils bioconductor-skeleton recipes/ config.yml limma --recursive
+
+``bioconda-utils list-build-failures``
+   List recipes with recorded build failure records, optionally
+   filtered by ``--git-range`` or output as ``--output-format markdown``::
+
+     bioconda-utils list-build-failures recipes/ config.yml
+
+``bioconda-utils update-pinning``
+   Increment build numbers for recipes whose pinnings have changed,
+   propagating bumps through the dependency graph. Use
+   ``--max-bumps`` to limit the number of updates::
+
+     bioconda-utils update-pinning recipes/ config.yml --packages mypkg
+
+``bioconda-utils bulk-trigger-ci``
+   Create an empty commit on the ``bulk`` branch to trigger a bulk
+   CI rebuild of all recipes::
+
+     bioconda-utils bulk-trigger-ci
