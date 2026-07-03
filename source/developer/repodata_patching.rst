@@ -101,6 +101,7 @@ each architecture::
     │   └── patch_instructions.json
     └── osx-64
         └── patch_instructions.json
+
 ..
   TODO: update when bioconda-repodata-patches is updated with linux-aarch64
 
@@ -190,7 +191,8 @@ contain the right changes before proceeding. To do this, we can use the
     ... and many more ...
 
 Note that you must have ``conda-build`` in your path for this to work, for
-example via the ``bioconda`` environment used for testing recipes locally with bioconda_utils_.
+example via the ``bioconda`` environment described in
+:ref:`bioconda-utils installation <bioconda-utils-installation>`.
 
 As long as all of the packages that should be updated are listed there, then
 these changes are ready for committing. Don't be surprised if
