@@ -37,10 +37,11 @@ allows us to keep editing the documentation lightweight.
 
 ## Building docs locally
 
-Make an environment containing the `bioconda-utils` package and some further build tools. E.g.,
+Make a conda environment containing the released `bioconda-utils` package and
+the additional documentation tools:
 
 ```bash
-mamba create \
+conda create \
   -n bioconda-docs \
   bioconda-utils \
   sphinx sphinx-autodoc-typehints celery \
@@ -81,4 +82,3 @@ This can take a while.
 These docs are automatically built each day, after pulling the latest changes
 to bioconda-recipes. This means that newly-added recipes or recently-updated
 recipes will not show up in the package index for a day or so.
-
