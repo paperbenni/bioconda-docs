@@ -233,3 +233,13 @@ ol.simple p {
 ul.simple p {
     margin-bottom: 1em;
 }
+
+/* Hide the branding text next to the logo to prevent overlap */
+.navbar-brand-text {
+    display: none;
+}
+
+/* Invert the black logo in dark mode for better visibility */
+html[data-theme="dark"] .navbar-brand img {
+    filter: invert(1);
+}
