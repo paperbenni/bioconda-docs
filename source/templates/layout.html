@@ -45,9 +45,4 @@
 </script>
 
     {{ super() }}
-{%- if git_ribbon_url -%}
-    <div class="git-ribbon">
-      <a href="{{git_ribbon_url}}" rel="me">{{git_ribbon_message}}</a>
-    </div>
-{%- endif -%}
 {%- endblock %}
