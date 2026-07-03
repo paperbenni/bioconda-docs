@@ -25,6 +25,20 @@
 
     <link rel="manifest" href="{{pathto('_static/manifest.json', 1)}}">
     <meta name="theme-color" content="#ffffff">
+    <script>
+        (function() {
+            const html = document.documentElement;
+            function syncTheme() {
+                const theme = html.getAttribute('data-theme');
+                if (theme) {
+                    html.setAttribute('data-bs-theme', theme);
+                }
+            }
+            syncTheme();
+            const observer = new MutationObserver(syncTheme);
+            observer.observe(html, { attributes: true, attributeFilter: ['data-theme'] });
+        })();
+    </script>
 {{ super() }}
 {% endblock %}
 
