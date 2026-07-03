@@ -151,8 +151,8 @@ However the extra layer of abstraction makes it
 difficult to troubleshoot problems with the recipe. If the conda-build
 test works but the mulled-build test fails try these steps:
 
-- Run the test using the ``bootstrap.py`` method described in
-  :doc:`building-locally`.
+- Run the test locally with ``bioconda-utils build --docker
+  --mulled-build-and-test`` as described in :doc:`building-locally`.
 - Look carefully at the output from ``mulled-build`` to look for
   Docker hashes, and cross-reference with the output of ``docker
   images | head`` to figure out the hash of the container used.
@@ -267,6 +267,4 @@ Example:
   In this case, the latter is not recommended as we would expect the
   version number to change with every new release of the upstream
   software.
-
-
 

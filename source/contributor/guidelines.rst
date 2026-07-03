@@ -330,10 +330,9 @@ R (Bioconductor)
 ----------------
 
 Use the ``bioconda-utils bioconductor-skeleton`` tool to build a Bioconductor
-skeleton. After using the :ref:`bootstrap` method to set up a testing
-environment and activating that environment (which will ensure the correct
-versions of bioconda-utils and conda-build), from the top level of the
-``bioconda-recipes`` repository run::
+skeleton. After installing and activating the environment described in
+:ref:`bioconda-utils installation <bioconda-utils-installation>`, run this from
+the top level of the ``bioconda-recipes`` repository::
 
     bioconda-utils bioconductor-skeleton recipes config.yml DESeq2
 
