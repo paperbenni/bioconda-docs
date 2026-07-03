@@ -27,7 +27,7 @@ package name or Git range:
 
 .. code-block:: bash
 
-   bioconda-utils lint --git-range master HEAD
+   bioconda-utils lint --git-range master...HEAD
    bioconda-utils lint recipes/ config.yml --packages samtools
 
 See :doc:`linting` for the checks and their remedies.
@@ -86,7 +86,7 @@ including removal of Windows-only entries and generated comments:
 
 .. code-block:: bash
 
-   bioconda-utils clean-cran-skeleton recipes/r-example/meta.yaml --no-windows
+   bioconda-utils clean-cran-skeleton recipes/r-example --no-windows
 
 .. _cli-bioconductor-skeleton:
 
@@ -98,7 +98,7 @@ dependencies:
 
 .. code-block:: bash
 
-   bioconda-utils bioconductor-skeleton recipes/ config.yml limma --recursive
+   bioconda-utils bioconductor-skeleton limma recipes/ config.yml --recursive
 
 See the Bioconductor section of :doc:`guidelines` for policy and maintenance
 details.
@@ -212,7 +212,7 @@ recipe locally:
 .. code-block:: bash
 
    bioconda-utils handle-merged-pr recipes/ config.yml \
-     --repo bioconda/bioconda-recipes --git-range master HEAD
+     --repo bioconda/bioconda-recipes --git-range master...HEAD
 
 This is an automation command with Anaconda, Quay, GitHub, and CI-provider
 integration. Use its ``--help`` output and :doc:`build-system` before running

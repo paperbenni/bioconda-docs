@@ -245,7 +245,7 @@ The build failure files look like this by default:
 
 If a failed recipe is a leaf (i.e., it is not a dependency for any other
 recipe), then it **WILL** be automatically skiplisted (``skiplist: true``) due
-to the ``--skiplist-leafs`` argument, and need to be handled later.
+to the ``--skiplist-leaves`` argument, and need to be handled later.
 
 Based on this log, you can decide whether and how the recipe can be fixed or
 skiplisted for fixing it later. To help others in the future, add information

@@ -5,15 +5,9 @@ Queue times on CI platforms may sometimes make it more convenient and
 faster to work on complex packages locally. There are several ways to
 do so, each with their own caveats.
 
-.. contents::
-   :local:
-
-
-.. _bioconda_utils:
-
 For more gentle step-by-step guides to local building and debugging see:
 
-* :doc:`/tutorials/2024-updating-bioinformatic-software-to-bioconda`
+* :doc:`/tutorials/2024-adding-bioinformatic-software-to-bioconda`
 * :doc:`/tutorials/2024-debugging-bioinformatic-software-to-bioconda`
 
 Using bioconda-utils

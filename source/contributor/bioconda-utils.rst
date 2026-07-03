@@ -122,11 +122,13 @@ Most commands support ``--loglevel`` and ``--logfile``. Recipe selection is
 usually expressed with one of the following:
 
 ``--packages``
-   Select one or more package-name globs directly.
+   Select package-name globs directly. Repeat the option to select more than
+   one glob, for example ``--packages samtools --packages bcftools``.
 
 ``--git-range``
-   Select recipes changed in a Git range, such as ``master HEAD``. A single
-   revision compares that revision with the working tree where supported.
+   Select changes on a ref since its merge base with another ref, using
+   ``BASE...REF`` syntax such as ``master...HEAD``. Supplying only ``BASE`` is
+   shorthand for ``BASE...HEAD``. Two-dot ranges are not supported.
 
 See :doc:`bioconda-utils-cli` for the command index and examples.
 

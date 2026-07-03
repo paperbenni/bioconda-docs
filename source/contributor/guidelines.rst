@@ -334,7 +334,7 @@ skeleton. After installing and activating the environment described in
 :ref:`bioconda-utils installation <bioconda-utils-installation>`, run this from
 the top level of the ``bioconda-recipes`` repository::
 
-    bioconda-utils bioconductor-skeleton recipes config.yml DESeq2
+    bioconda-utils bioconductor-skeleton DESeq2 recipes/ config.yml
 
 Note that the provided package name is a case-sensitive package available on
 Bioconductor. The output recipe name will have a ``bioconductor-`` prefix and
