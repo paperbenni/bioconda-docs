@@ -175,9 +175,9 @@ scientific Python stack.
 
 Many packaging problems had to be solved in order to provide all of that
 software in Anaconda in a cross-platform bundle, and one of the tools that came
-out of that work was the conda package manager. So conda is part of th Anaconda
-Python distribution. But conda ended up being very useful on its own and for
-things other than Python, so ContinuumIO spun it out into its own separate
+out of that work was the conda package manager. So conda is part of the
+Anaconda Python distribution. But conda ended up being very useful on its own
+and for things other than Python, so ContinuumIO spun it out into its own
 `open-source package <https://github.com/conda/conda>`_.
 
 Conda became very useful for setting up lightweight environments for testing
