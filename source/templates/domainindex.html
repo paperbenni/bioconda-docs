@@ -8,62 +8,67 @@
       DOCUMENTATION_OPTIONS.COLLAPSE_INDEX = true;
     </script>
 {% endif %}
-  <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
-  <link rel="stylesheet" href="https://cdn.datatables.net/rowgroup/1.5.1/css/rowGroup.dataTables.min.css"/>
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.3.8/css/dataTables.bootstrap5.min.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/rowgroup/1.6.0/css/rowGroup.bootstrap5.min.css"/>
     
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
-  <script src="https://cdn.datatables.net/rowgroup/1.5.1/js/dataTables.rowGroup.min.js"></script>
+  <script src="https://cdn.datatables.net/2.3.8/js/dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/2.3.8/js/dataTables.bootstrap5.min.js"></script>
+  <script src="https://cdn.datatables.net/rowgroup/1.6.0/js/dataTables.rowGroup.min.js"></script>
+  <script src="https://cdn.datatables.net/rowgroup/1.6.0/js/rowGroup.bootstrap5.min.js"></script>
 {% endblock %}
 {% block body %}
 
    {%- set groupid = idgen() %}
 
    <h1>{{ indextitle }}</h1>
+     <div class="table-responsive my-4" style="max-width: 500px;">
+    <table class="table table-striped table-bordered table-hover align-middle">
+     <thead>
+       <tr class="table-dark">
+         <th>Recipes</th>
+         <th>Count</th>
+         <th>Ratio</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr>
+         <td>Total</td>
+         <td id="total-count" style="text-align: center; font-weight: bold;"></td>
+         <td></td>
+       </tr>
+       <tr>
+         <td>noarch</td>
+         <td id="noarch-count" style="text-align: center;"></td>
+         <td><span id="noarch-ratio"></span>%</td>
+       </tr>
+       <tr>
+         <td>linux-64</td>
+         <td id="linux-64-count" style="text-align: center;"></td>
+         <td><span id="linux-64-ratio"></span>%</td>
+       </tr>
+       <tr>
+         <td>linux-aarch64</td>
+         <td id="linux-aarch64-count" style="text-align: center;"></td>
+         <td><span id="linux-aarch64-ratio"></span>%</td>
+       </tr>
+       <tr>
+         <td>osx-64:</td>
+         <td id="osx-64-count" style="text-align: center;"></td>
+         <td><span id="osx-64-ratio"></span>%</td>
+       </tr>
+       <tr>
+         <td>osx-arm64:</td>
+         <td id="osx-arm64-count" style="text-align: center;"></td>
+         <td><span id="osx-arm64-ratio"></span>%</td>
+       </tr>
+     </tbody>
+    </table>
+   </div>
    
-   <table>
-    <thead>
-      <tr>
-        <th>Recipes</th>
-        <th>Count</th>
-        <th>Ratio</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Total</td>
-        <td id="total-count" style="text-align: center;"></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>noarch</td>
-        <td id="noarch-count" style="text-align: center;"></td>
-        <td><span id="noarch-ratio"></span>%</td>
-      </tr>
-      <tr>
-        <td>linux-64</td>
-        <td id="linux-64-count" style="text-align: center;"></td>
-        <td><span id="linux-64-ratio"></span>%</td>
-      </tr>
-      <tr>
-        <td>linux-aarch64</td>
-        <td id="linux-aarch64-count" style="text-align: center;"></td>
-        <td><span id="linux-aarch64-ratio"></span>%</td>
-      </tr>
-      <tr>
-        <td>osx-64:</td>
-        <td id="osx-64-count" style="text-align: center;"></td>
-        <td><span id="osx-64-ratio"></span>%</td>
-      </tr>
-      <tr>
-        <td>osx-arm64:</td>
-        <td id="osx-arm64-count" style="text-align: center;"></td>
-        <td><span id="osx-arm64-ratio"></span>%</td>
-      </tr>
-    </tbody>
-   </table>
-   
-   <table class="indextable modindextable" id="recipes-table"></table>
+   <div class="table-responsive my-5">
+    <table class="table table-striped table-bordered table-hover align-middle indextable modindextable" id="recipes-table" style="width: 100%;"></table>
+   </div>
    
    <script>
 

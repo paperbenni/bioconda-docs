@@ -40,6 +40,7 @@ extensions = [
     "sphinx_autodoc_typehints",  # must be loaded after napoleon
     "celery.contrib.sphinx",
     "sphinx.ext.graphviz",  # used for tutorial
+    "sphinx_copybutton",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -99,15 +100,29 @@ todo_include_todos = True
 
 # -- Options for HTML output ----------------------------------------------
 
-html_theme = "alabaster"
+html_theme = "pydata_sphinx_theme"
+
+html_logo = "static/logo/bioconda_monochrome_small.png"
 
 html_theme_options = {
-    "logo": "logo/bioconda_monochrome_small.png",
-    "sidebar_includehidden": False,
-    "show_related": True,
-    "font_family": "Raleway, sans-serif",
-    "head_font_family": "'Lato', sans-serif",
-    "fixed_sidebar": False,
+    "logo": {
+        "image_light": "logo/bioconda_monochrome_small.png",
+        "image_dark": "logo/bioconda_monochrome_small.png",
+    },
+    "external_links": [
+        {"name": "Browse packages", "url": "conda-package_index.html"},
+    ],
+    "github_url": "https://github.com/bioconda/bioconda-recipes",
+    "icon_links": [
+        {
+            "name": "Gitter",
+            "url": "https://gitter.im/bioconda/Lobby",
+            "icon": "fa-brands fa-gitter",
+            "type": "fontawesome",
+        }
+    ],
+    "use_edit_page_button": True,
+    "search_as_you_type": True,
 }
 
 # The name for this set of Sphinx documents.  If None, it defaults to
@@ -116,15 +131,6 @@ html_theme_options = {
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 # html_short_title = None
-
-# The name of an image file (relative to this directory) to place at the top
-# of the sidebar.
-# html_logo = '../logo/bioconda_monochrome_small.png'
-
-# The name of an image file (within the static path) to use as favicon of the
-# docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
-# pixels large.
-# html_favicon = None
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -144,21 +150,17 @@ html_js_files = ["vega.min.js", "vega-lite.min.js", "vega-embed.min.js"]
 
 # Custom sidebar templates, maps document names to template names.
 html_sidebars = {
-    "**": [
-        "about.html",
-        "navigation.html",
-        "index.html",
-        "searchbox2.html",
-    ]
+    "index": [],
+    "faqs": [],
+    "conda-package_index": [],
+    "**": ["sidebar-nav-bs.html"]
 }
 
 html_context = {
-    "extra_nav_items": {
-        "Browse packages": "conda-package_index",
-        "Bioconda @ Github" : "https://github.com/bioconda/bioconda-recipes",
-        '<img alt="Gitter" src="https://img.shields.io/gitter/room/bioconda/Lobby.svg">':
-        "https://gitter.im/bioconda/Lobby"
-    }
+    "github_user": "bioconda",
+    "github_repo": "bioconda-docs",
+    "github_version": "main",
+    "doc_path": "source",
 }
 
 # Additional templates that should be rendered to pages, maps page names to
