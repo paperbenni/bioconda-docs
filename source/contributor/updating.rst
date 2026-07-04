@@ -180,12 +180,11 @@ Bioconda has project wide pinnings for many common dependencies, such as numpy, 
 
 On rare occasions these pinnings are updated (e.g., changing compiler versions, or updating the supported versions of Python) and many packages need to be updated project-wide to account for this. To facilitate such updates, ``bioconda-utils`` now has an ``update-pinning`` subcommand. To use this, first create a conda environment with bioconda-utils:
 
-.. code-block:: bash
+Install and activate the released tool as described in
+:ref:`bioconda-utils installation <bioconda-utils-installation>`. Then run the
+command from a ``bioconda-recipes`` checkout. For example:
 
-    $ conda create -n bioconda-utils conda=4.5.11 python=3.6
-    $ source activate bioconda-utils
-    $ conda install -y git pip --file https://raw.githubusercontent.com/bioconda/bioconda-utils/master/bioconda_utils/bioconda_utils-requirements.txt
-    $ pip install git+https://github.com/bioconda/bioconda-utils
+.. code-block:: bash
 
 You then have an environment with the most recent version of ``bioconda-utils``. Below we use *deepTools* as an example to show how to update a package and all of its dependencies as needed due to a change in pinnings. First ensure you're in the ``bioconda-recipes`` repository and then:
 
