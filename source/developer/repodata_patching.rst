@@ -91,7 +91,7 @@ with the bioconda-repodata-patches package.
 The bioconda-repodata-patches package
 -------------------------------------
 
-The `bioconda-repodata-patches` package itself contains a set of patches for
+The ``bioconda-repodata-patches`` package itself contains a set of patches for
 each architecture::
 
     .
@@ -106,7 +106,7 @@ each architecture::
   TODO: update when bioconda-repodata-patches is updated with linux-aarch64
 
 For an individual package, the json file will eventually contain the updated dependencies.
-For the `nanoqc` example above, that will eventually look like::
+For the ``nanoqc`` example above, that will eventually look like::
 
     "nanoqc-0.9.4-py_0.tar.bz2": {
       "depends": [
@@ -119,7 +119,7 @@ For the `nanoqc` example above, that will eventually look like::
 
 Thankfully, you do not need to manually update each package and in fact if you
 do, your changes will be lost over time. Instead, update the
-`bioconda-repodata-patches` recipe, by editing the `gen_patch_json.py` script
+``bioconda-repodata-patches`` recipe, by editing the ``gen_patch_json.py`` script
 and building a new package version as described below.
 
 Modifying gen_patch_json.py
@@ -133,18 +133,18 @@ that should typically be modified: ``_gen_new_index_per_key()``. Within this fun
 record in each repodata.json is iterated over and changes that should be made to it
 are returned to a comparison function. So if you make changes within this
 function, they'll end up in the appropriate ``patch_instructions.json`` file, once 
-you build a new version of the `bioconda-repodata-patches` package.
-Let's use the `nanoqc` example to see how we can do this.
+you build a new version of the ``bioconda-repodata-patches`` package.
+Let's use the ``nanoqc`` example to see how we can do this.
 
-We first need to come up with a strategy for finding and updating the `nanoqc`
+We first need to come up with a strategy for finding and updating the ``nanoqc``
 packages. A process like that might look like the following:
 
  1. Find any package whose name starts with nanoqc
- 2. See if it has `bokeh` listed as a dependency.
+ 2. See if it has ``bokeh`` listed as a dependency.
  3. Change that dependency to ``bokeh >=2.4,<3``
 
-One thing we should think about is what will happen if a new version of `nanoqc`
-comes out that **IS** compatible with new versions of `bokeh`. We certainly
+One thing we should think about is what will happen if a new version of ``nanoqc``
+comes out that **IS** compatible with new versions of ``bokeh``. We certainly
 don't want to continue adding this version constraint to new releases. To avoid
 this, we can use the ``timestamp``, so we only update packages that currently
 exist. The code for this might look like the following:
@@ -158,7 +158,7 @@ exist. The code for this might look like the following:
                 deps[i] = 'bokeh >=2.4,<3'
                 break
 
-So, we're only modifying packages that start with `nanoqc`, have `bokeh` as a
+So, we're only modifying packages that start with ``nanoqc``, have ``bokeh`` as a
 dependency and are sufficiently old.
 
 After making this change, we then need to run ``gen_patch_json.py``, to
@@ -204,7 +204,7 @@ Building a new ``bioconda-repodata-patches`` package version
 
 For the repodata patches to be applied, they
 `need to be placed in the right location for Anaconda's mirroring tools to find them <https://docs.conda.io/projects/conda-build/en/latest/concepts/generating-index.html#repodata-patches-applied-from-a-json-file>`_.
-This is done via building a new ``version`` of the `bioconda-repodata-patches` package.
+This is done via building a new ``version`` of the ``bioconda-repodata-patches`` package.
 Thus, after verifying and committing you repodata patch updates, bump the
 ``version`` in ``meta.yaml`` to the current date (and reset the build number to
 ``0``, if necessary). Now, you can publish your new branch and open a pull

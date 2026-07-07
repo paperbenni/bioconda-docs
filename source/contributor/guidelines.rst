@@ -800,7 +800,7 @@ recipe, there are two options for this.
 Linked packages
 ~~~~~~~~~~~~~~~
 
-You can use the main recipe ``meta.yaml`` for the more recent major 
+You can use the main recipe ``meta.yaml`` for the more recent major
 version, and place the older version in a subdirectory with it's own ``meta.yaml``.
 In this case the name of the tool will be the same
 

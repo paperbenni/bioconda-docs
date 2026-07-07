@@ -85,11 +85,11 @@ below for where this is configured). There are still packages in the Bioconda
 channel for earlier versions of Python, but new packages
 are not built for these versions.
 
-Packages which declare `noarch: python` and only depend on packages that also
-declare `noarch: python` can be installed in an environment with any version of
+Packages which declare ``noarch: python`` and only depend on packages that also
+declare ``noarch: python`` can be installed in an environment with any version of
 Python they say they can support. However many Python packages in Bioconda
 depend on other Bioconda packages with architecture specific builds, such as
-`pysam`, and so do not meet this criteria.
+``pysam``, and so do not meet this criteria.
 
 .. datechanged:: 2022-09-01
    Python 3.10 support started in Aug 2022
@@ -205,11 +205,11 @@ version, dependencies, and URL for source code. A recipe typically contains
 a ``meta.yaml`` file that defines these settings and a ``build.sh`` script that
 builds the software.
 
-A recipe is converted into a *package* by running `conda-build` on the recipe.
+A recipe is converted into a *package* by running ``conda-build`` on the recipe.
 A package is a bgzipped tar file (``.tar.bz2``) that contains the built
 software in expected subdirectories, along with a list of what other packages
 are dependencies. For example, a conda package built for a Python package would
-end up with `.py` files in the `lib/python3.8/site-packages/<pkgname>`
+end up with ``.py`` files in the ``lib/python3.8/site-packages/<pkgname>``
 directory inside the tarball, and would specify (at least) Python as
 a dependency.
 
