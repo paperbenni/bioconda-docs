@@ -186,6 +186,9 @@ command from a ``bioconda-recipes`` checkout. For example:
 
 .. code-block:: bash
 
+    $ conda create -n bioconda -c conda-forge -c bioconda --strict-channel-priority bioconda-utils
+    $ conda activate bioconda
+
 You then have an environment with the most recent version of ``bioconda-utils``. Below we use *deepTools* as an example to show how to update a package and all of its dependencies as needed due to a change in pinnings. First ensure you're in the ``bioconda-recipes`` repository and then:
 
 .. code-block:: bash
