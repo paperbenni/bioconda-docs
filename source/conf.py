@@ -110,7 +110,10 @@ html_theme_options = {
         "image_dark": "logo/bioconda_monochrome_small.png",
     },
     "external_links": [
-        {"name": "Browse packages", "url": "conda-package_index.html"},
+        {
+            "name": "Browse packages",
+            "url": "/conda-package_index.html",
+        },
     ],
     "github_url": "https://github.com/bioconda/bioconda-recipes",
     "icon_links": [
