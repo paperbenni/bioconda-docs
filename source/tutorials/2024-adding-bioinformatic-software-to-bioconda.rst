@@ -19,7 +19,7 @@ However, the steps here should act as a good starting point.
 Furthermore, if you are planning to add someone else's tool or package to Bioconda, it's always good etiquette to ask or just inform the original authors that it will happen.
 
 TL;DR Relevant Commands
-*****************
+***********************
 
 .. code-block:: bash
 
@@ -172,7 +172,7 @@ For more information, the `conda-forge <https://conda-forge.org>`_ project has `
      - The e.g. ``sha265`` hash string of the file for download verification.
    - ``build:``
      - Specify the build number (for new packages or new software version, always ``0``).
-     - Possibly the architecture (e.g. ```noarch`` for Python packages).
+     - Possibly the architecture (e.g. ``noarch`` for Python packages).
      - A ``run_exports`` subpackage pinning.
    - ``requirements:``
      - Specify a list of the various dependencies of the software needs during various sections of the build process, i.e., ``host``, ``build``, and ``run``.
@@ -180,7 +180,7 @@ For more information, the `conda-forge <https://conda-forge.org>`_ project has `
    - ``test:``
      - One or more (e.g. if multiple CLI tools or scripts exist under the package) commands to test the software installed correctly.
      - Typically simply running the tool with ``--help`` or ``--version`` is sufficient, but must have a ``0`` exit code to indicate success.
-     - If ``--help`` ends with a non-``0`` code, we can try ``grep``ing for a string in the help message.
+     - If ``--help`` returns a nonzero exit status, test for a string in the help message using ``grep``.
    - ``about:``
      - URL of such as source code repository or documentation home page.
      - License type [4]_.
@@ -192,7 +192,7 @@ For more information, the `conda-forge <https://conda-forge.org>`_ project has `
 
    An example of a ``meta.yaml`` is as follows:
 
- .. code-block:: yaml
+ .. code-block:: yaml+jinja
 
    {% set name = "centrifuge" %}
    {% set version = "1.0.4.1" %}
@@ -373,7 +373,8 @@ Once we're happy with our recipe, we can open a pull request on the main ``bioco
 
 We can do this (if you're not too familiar with GitHub), by:
 
-1. On your local repo, ``git add``ing the files you've added, commit, and push.
+1. In your local repository, run ``git add`` for the files you've added, then
+   commit and push.
 2. Go to the main ``bioconda-recipes`` repository on GitHub.
 3. Switch to the Pull Requests tab.
 4. Press the green 'New Pull Request' button.
