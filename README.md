@@ -37,36 +37,35 @@ allows us to keep editing the documentation lightweight.
 
 ## Building docs locally
 
-Make an environment containing the `bioconda-utils` package and some further build tools. E.g.,
+Ensure you have [Pixi](https://pixi.sh) installed. Then, in the top level of this repository, you can run the following tasks:
+
+### Live development server (Recommended)
+
+To start the live-reloading development server at `http://127.0.0.1:8000`:
 
 ```bash
-mamba create \
-  -n bioconda-docs \
-  bioconda-utils \
-  sphinx sphinx-autodoc-typehints celery \
-  --channel conda-forge \
-  --channel bioconda \
-  --strict-channel-priority
+pixi run dev
 ```
 
-With that environment activated (i.e., `conda activate bioconda-docs`), in the
-top level of this repo, run:
+### Static build
+
+To generate all the main HTML files plus the `README.html` for a limited subset of 10 recipes (for faster builds) outputting to `build/html`:
 
 ```bash
-make BIOCONDA_FILTER_RECIPES=10 html SPHINXOPTS="-T -j1"
+pixi run make BIOCONDA_FILTER_RECIPES=10 html SPHINXOPTS="-T -j1"
 ```
 
-This will generate all the main HTML files plus the `README.html` for 10 recipes, with the output in `build/html`.
-
-Note that you can set `BIOCONDA_FILTER_RECIPES` to some other number or to a regex.
-For example, you can specify the building of only the `openms-meta` recipe with:
+Note that you can set `BIOCONDA_FILTER_RECIPES` to some other number or to a regex. For example, to build only the `openms-meta` recipe:
 
 ```bash
-make BIOCONDA_FILTER_RECIPES="openms-meta" html SPHINXOPTS="-T -j1"
+pixi run make BIOCONDA_FILTER_RECIPES="openms-meta" html SPHINXOPTS="-T -j1"
 ```
 
-And omitting `BIOCONDA_FILTER_RECIPES` completely will build *all* recipes' README.html pages.
-This can take a while.
+And omitting `BIOCONDA_FILTER_RECIPES` completely will build *all* recipes' README.html pages (which can take a while):
+
+```bash
+pixi run make html
+```
 
 
 ## Points of interest
@@ -81,4 +80,3 @@ This can take a while.
 These docs are automatically built each day, after pulling the latest changes
 to bioconda-recipes. This means that newly-added recipes or recently-updated
 recipes will not show up in the package index for a day or so.
-
