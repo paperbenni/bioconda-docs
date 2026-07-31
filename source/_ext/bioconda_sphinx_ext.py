@@ -433,6 +433,7 @@ class CondaDomain(Domain):
     roles = {
         'recipe': XRefRole(),
         'package': XRefRole(),
+        'depends': XRefRole(),
     }
     initial_data = {
         'objects': {},  #: (type, name) -> docname, labelid
