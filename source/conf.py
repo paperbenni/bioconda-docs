@@ -102,12 +102,12 @@ todo_include_todos = True
 
 html_theme = "pydata_sphinx_theme"
 
-html_logo = "static/logo/bioconda_monochrome_small.png"
+html_logo = "static/logo/bioconda_monochrome.svg"
 
 html_theme_options = {
     "logo": {
-        "image_light": "logo/bioconda_monochrome_small.png",
-        "image_dark": "logo/bioconda_monochrome_small.png",
+        "image_light": "static/logo/bioconda_monochrome.svg",
+        "image_dark": "static/logo/bioconda_monochrome.svg",
     },
     "external_links": [
         {
