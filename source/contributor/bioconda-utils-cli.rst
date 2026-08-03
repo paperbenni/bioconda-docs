@@ -47,11 +47,13 @@ package in a minimal container and repeats the recipe tests:
      --packages samtools --force
 
 For a Docker build, ``--platform`` selects the architecture of the entire
-package-and-container pipeline, using OCI notation such as ``linux/arm64``.
-The corresponding conda package subdirectory and mulled-container target are
-derived from this single value; there is no separate container-platform
+package-and-container pipeline, using conda subdirectory notation such as
+``linux-aarch64``. The corresponding OCI target (``linux/arm64`` in this
+example) is derived internally; there is no separate container-platform
 setting. ``--platform`` is invalid without ``--docker`` because a native
-conda-build cannot cross-build merely by changing its platform label.
+conda-build cannot cross-build merely by changing its platform label. macOS
+subdirectories are invalid for Docker builds because the build containers are
+Linux-only.
 
 The command also owns optional package and container uploads. See
 :doc:`building-locally` for local build and isolated-test examples.
