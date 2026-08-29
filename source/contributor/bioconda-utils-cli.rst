@@ -48,10 +48,7 @@ package in a minimal container and repeats the recipe tests:
 
 For a Docker build, ``--platform`` selects the architecture of the entire
 package-and-container pipeline, using conda subdirectory notation such as
-``linux-aarch64``. The corresponding OCI target (``linux/arm64`` in this
-example) is derived internally; there is no separate container-platform
-setting. ``--platform`` is invalid without ``--docker`` because a native
-conda-build cannot cross-build merely by changing its platform label. macOS
+``linux-aarch64``. macOS
 subdirectories are invalid for Docker builds because the build containers are
 Linux-only.
 
